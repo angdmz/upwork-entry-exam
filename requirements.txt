@@ -1,0 +1,11 @@
+fastapi==0.105.0
+asyncpg==0.29.0
+alembic==1.13.0
+sqlalchemy==2.0.23
+pytest==7.4.3
+gunicorn
+httpx==0.25.2
+psycopg2-binary==2.9.9
+pydantic-settings==2.1.0
+email-validator==2.1.0.post1
+greenlet==3.0.2

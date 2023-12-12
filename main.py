@@ -1,13 +1,17 @@
+from contextlib import asynccontextmanager
+from typing import Generator, Any
+
 from fastapi import FastAPI
 
-app = FastAPI()
+from app import get_app
+from settings import DatabaseSettings, AppSettings
+
+db_settings = DatabaseSettings()
+app_settings = AppSettings()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> Generator[Any, Any, None]:
+    yield
 
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+app = get_app(app_settings, lifespan)
