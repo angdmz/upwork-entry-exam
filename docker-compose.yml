@@ -5,7 +5,7 @@ services:
     build:
       dockerfile: Dockerfile
     image: upwork-entry-exam:latest
-    command: gunicorn main:app --host 0.0.0.0 --port 8000
+    command: gunicorn main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
     ports:
       - "8000:8000"
     depends_on:

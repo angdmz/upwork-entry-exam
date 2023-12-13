@@ -9,7 +9,8 @@ from api import users_router
 def get_app(settings: AppSettings, lifespan):
 
     app = FastAPI(
-        title="Carry Pools API",
+        title="Upwork entry exam API",
+        docs_url="/",
         lifespan=lifespan
     )
 
